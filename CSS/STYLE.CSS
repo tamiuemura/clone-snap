@@ -18,19 +18,11 @@
     margin: 0;
 }
 
-@media screen and (max-width: 800px) {
-    .container {
-        margin: 1em 2em;
-    }
-
-
-}
-
 .menu {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .menu-mobile {
@@ -39,17 +31,48 @@
 
 .logo {
     display: flex;
+    width: 25%;
 }
 
 .logo-img {
     width: 56px;
     height: 56px;
+    margin-left: 10px;
+    
+}
+
+.item-center {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.item-menu {
+    width: 96px;
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-menu p {
+    color: black;
+}
+
+.item-menu img {
+    width: 40px;
+    height: 36px;
 }
 
 .item-end {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 20px;
+    width: 25%;
+    margin-right: 20px; 
+
 }
 
 .item-end a {
@@ -85,24 +108,28 @@
     align-items: center;
 }
 
-.text-about h1 {
+.text-mobile {
+    display: none;
+}
+
+.text-web h1 {
     font-size: 64px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
 }
 
-.text-about h3 {
+.text-web h3 {
     margin-top: 20px;
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
 }
 
-.about .text-about button {
+.about .text-web .botao-web{
     display: flex;
     align-items: center;
     margin: 30px 0 0;
-    padding: 0 20px;
+    padding: 8px 20px;
     gap: 8px;
     width: 222px;
     height: 50px;
@@ -114,6 +141,10 @@
     font-weight: 100;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+}
+
+.botao-mobile {
+    display: none;
 }
 
 .image img {
@@ -175,20 +206,48 @@
         flex-direction: column;
     }
 
-    .text-about h1 {
-        font-size: 46px;
-        text-align: center;
+    .text-web {
+        display: none;
     }
 
-    .text-about h3 {
+    .text-mobile {
+        width: 100vw;
+        padding: 8px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-mobile h1 {
+        font-size: 32px;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    .text-mobile h3 {
         font-size: 20px;
         text-align: center;
+        font-weight: 100;
     }
 
-    .about .text-about button {
-        width: 330px;
-        font-size: 16px;
+    .about .text-mobile .botao-mobile{
+        display: flex;
         align-items: center;
+        margin: 30px 0 0;
+        padding: 12px 36px;
+        min-width: fit-content;
+        background-color: black;
+        color: white;
+        border-radius: 500px;
+        font-size: 19px;
+        font-weight: 100;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+    .botao-web {
+        display: none !important;
     }
 
     .footer p{
