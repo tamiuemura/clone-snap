@@ -1,104 +1,503 @@
 <html lang="PT-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="O Snapchat agora está disponível na Web!">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="O Snapchat agora está disponível na Web!"
+    />
 
     <title>Snapchat</title>
 
     <link href="./CSS/STYLE.CSS" rel="stylesheet" />
     <style>
-        body {
-            background-color: yellow;
-        }
-    </style>
-</head>
+      body {
+        background-color: yellow;
+      }
 
-<body>
+      .visivel {
+        display: block;
+      }
+
+      .adicionarModal {
+        background-color: white;
+        text-align: center;
+        width: 80%;
+        margin: 20px auto 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid black;
+      }
+
+      .dadosModal {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .dadosModal > button {
+        width: 100%;
+        padding: 5px;
+        margin: 20px auto;
+      }
+
+      .containerPesquisa {
+        background-color: white;
+        text-align: center;
+        width: 80%;
+        margin: 20px auto 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid black;
+      }
+
+      .pesquisa {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .listaPostagens {
+        background-color: white;
+        width: 80%;
+        margin: 20px auto 100px auto;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid black;
+      }
+
+      .dadosPostagens {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .post {
+        background-color: rgb(255, 255, 137);
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .post > * {
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .post .botoes {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .post > span {
+        width: 100%;
+      }
+
+      .post > img {
+        margin: 0 auto;
+        aspect-ratio: 3/2;
+        object-fit: contain;
+        width: 50%;
+        height: 50%;
+      }
+
+      .botoes > button {
+        padding: 5px;
+      }
+
+      #adicionar {
+        padding: 5px;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        padding: 20px;
+        border: 1px solid #888;
+        left: 20%;
+        position: absolute;
+        top: 30%;
+        -webkit-transform: translate(0%, 10%);
+        transform: translate(0%, 10%);
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
     <header>
-        <div class="menu">
-            <div class="logo">
-                <img class="logo-img" src="./image/snapchat-logo-snapchat-icon-transparent-free-png.webp">
-            </div>
-            <div class="item-center">
-                <a href="#" class="item-menu">
-                    <img src="./image/historias2.png">
-                    <p>Histórias</p>
-                </a>
-                <a href="#" class="item-menu">
-                    <img src="./image/spotlight2.png">
-                    <p>Spotligh</p>
-                </a>
-                <a href="#" class="item-menu">
-                    <img src="./image/chat2.png">
-                    <p>Chat</p>
-                </a>
-                <a href="#" class="item-menu">
-                    <img src="./image/lentes2.png">
-                    <p>Lentes</p>
-                </a>
-                <a href="#" class="item-menu">
-                    <img src="./image/mapa2.png">
-                    <p>Mapa</p>
-                </a>
-            </div>
-            <div class="item-end">
-                <a href="#"><img src="./image/menu.png"></a>
-                <button>Anúncios do Snapchat</button>
-                <button>Baixar</button>
-            </div>
+      <div class="menu">
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="./image/snapchat-logo-snapchat-icon-transparent-free-png.webp"
+          />
         </div>
-        <div class="menu-mobile">
-            <div class="item-end">
-                <a href="#"><img src="./image/hamburger.png"></a>
-            </div>
-            <div class="logo">
-                <img class="logo-img" src="./image/snapchat-logo-snapchat-icon-transparent-free-png.webp">
-            </div>
-            <div class="item-end">
-                <button>Instalar</button>
-            </div>
+        <div class="item-center">
+          <a href="#" class="item-menu">
+            <img src="./image/historias2.png" />
+            <p>Histórias</p>
+          </a>
+          <a href="#" class="item-menu">
+            <img src="./image/spotlight2.png" />
+            <p>Spotligh</p>
+          </a>
+          <a href="#" class="item-menu">
+            <img src="./image/chat2.png" />
+            <p>Chat</p>
+          </a>
+          <a href="#" class="item-menu">
+            <img src="./image/lentes2.png" />
+            <p>Lentes</p>
+          </a>
+          <a href="#" class="item-menu">
+            <img src="./image/mapa2.png" />
+            <p>Mapa</p>
+          </a>
         </div>
+        <div class="item-end">
+          <a href="#"><img src="./image/menu.png" /></a>
+          <button>Anúncios do Snapchat</button>
+          <button>Baixar</button>
+        </div>
+      </div>
+      <div class="menu-mobile">
+        <div class="item-end">
+          <a href="#"><img src="./image/hamburger.png" /></a>
+        </div>
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="./image/snapchat-logo-snapchat-icon-transparent-free-png.webp"
+          />
+        </div>
+        <div class="item-end">
+          <button>Instalar</button>
+        </div>
+      </div>
     </header>
 
     <section class="about">
-        <div class="text">
-            <div class="text-web">
-                <h1>O Snapchat<br />agora está na<br />Web!</h1>
-                <h3>Chat, Snap e ligação de vídeo com<br />seus amigos de onde você estiver.</h3>
-                <button class="botao-web">
-                    <svg width="24" height="17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21.847 1.628c.071.173.108.358.108.546h.01v11.642H2.045V2.174A1.426 1.426 0 013.47.748H20.53a1.426 1.426 0 011.317.88zM3.708 12.153h16.584V2.41H3.708v9.742zm10.43 2.378a.528.528 0 00-.057-.24H24c0 1.083-.977 1.961-2.177 1.961H2.177C.974 16.252 0 15.374 0 14.292h9.92a.528.528 0 00.098.618c.1.1.237.156.379.156h3.206a.535.535 0 00.535-.535z"
-                            fill="#F7F8F9"></path>
-                    </svg>
-                    <h4>Faça o login para conversar</h4>
-                </button>
-            </div>
-            <div class="text-mobile">
-                <h1>Baixe o Snapchat</h1>
-                <h3>Baixe e experimente as Lentes mais populares, envie Snaps e converse com seus amigos, explore o Mapa e muito, muito mais!</h3>
-                <button class="botao-mobile">
-                    <h4>Baixar</h4>
-                </button>
-            </div>
-            <div class="image">
-                <img src="./image/pc.png" />
-            </div>
+      <div class="text">
+        <div class="text-web">
+          <h1>O Snapchat<br />agora está na<br />Web!</h1>
+          <h3>
+            Chat, Snap e ligação de vídeo com<br />seus amigos de onde você
+            estiver.
+          </h3>
+          <button class="botao-web">
+            <svg
+              width="24"
+              height="17"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21.847 1.628c.071.173.108.358.108.546h.01v11.642H2.045V2.174A1.426 1.426 0 013.47.748H20.53a1.426 1.426 0 011.317.88zM3.708 12.153h16.584V2.41H3.708v9.742zm10.43 2.378a.528.528 0 00-.057-.24H24c0 1.083-.977 1.961-2.177 1.961H2.177C.974 16.252 0 15.374 0 14.292h9.92a.528.528 0 00.098.618c.1.1.237.156.379.156h3.206a.535.535 0 00.535-.535z"
+                fill="#F7F8F9"
+              ></path>
+            </svg>
+            <h4>Faça o login para conversar</h4>
+          </button>
         </div>
-
+        <div class="text-mobile">
+          <h1>Baixe o Snapchat</h1>
+          <h3>
+            Baixe e experimente as Lentes mais populares, envie Snaps e converse
+            com seus amigos, explore o Mapa e muito, muito mais!
+          </h3>
+          <button class="botao-mobile">
+            <h4>Baixar</h4>
+          </button>
+        </div>
+        <div class="image">
+          <img src="./image/pc.png" />
+        </div>
+      </div>
     </section>
 
+    <div class="containerPesquisa">
+      <div class="pesquisa">
+        <label for="pesquisa">Pesquisar</label>
+        <input
+          onkeyup="pesquisarPost()"
+          type="text"
+          name="pesquisa"
+          id="pesquisa"
+          placeholder="Insira o titulo ou conteudo textual"
+        />
+      </div>
+    </div>
+
+    <section>
+      <button
+        id="adicionar"
+        style="display: flex; justify-content: center; margin: 0 auto"
+        onclick="mostrarModal()"
+      >
+        Adicionar
+      </button>
+    </section>
+
+    <div id="adicionarModal" class="adicionarModal" style="display: none">
+      <div class="dadosModal">
+        <label for="titulo">Titulo</label>
+        <input type="text" id="titulo" value="" />
+        <label for="">Imagem</label>
+        <input type="file" id="imagem" accept="image/*" />
+        <label for="">Data</label>
+        <input type="date" id="data" value="" />
+        <label for="">Conteúdo</label>
+        <input type="text" id="conteudo" value="" />
+        <button onclick="salvarDados()">Salvar</button>
+      </div>
+    </div>
+
+    <div id="editarModal" class="modal">
+      <div class="modal-content">
+        <h2>Editar Postagem</h2>
+        <input type="text" id="edit-titulo" />
+        <input type="file" id="edit-imagem" accept="image/*" />
+        <input type="date" id="edit-data" />
+        <input type="text" id="edit-conteudo" />
+        <input type="hidden" id="edit-index" />
+        <button onclick="salvarEdicao()">Salvar</button>
+        <button onclick="cancelarEdicao()">Fechar</button>
+      </div>
+    </div>
+
+    <div class="listaPostagens">
+      <div class="dadosPostagens"></div>
+    </div>
+
     <footer class="footer">
-        <p> <span style="color: yellow;">Novo!</span> Envie Snaps, converse e faça chamadas de vídeo com seus amigos
-            direto do navegador.
-            <span style="color: yellow;">Experimente já!</span>
-        </p>
-        <button>Abrir no Snapchat</button>
+      <p>
+        <span style="color: yellow">Novo!</span> Envie Snaps, converse e faça
+        chamadas de vídeo com seus amigos direto do navegador.
+        <span style="color: yellow">Experimente já!</span>
+      </p>
+      <button>Abrir no Snapchat</button>
     </footer>
 
-</body>
+    <script>
+      window.onload = function () {
+        mostrarPostagens();
+      };
 
+      function mostrarPostagens(lista) {
+        var dadosPostagens = document.querySelector(".dadosPostagens");
+        dadosPostagens.innerHTML = "";
+
+        var postagens =
+          lista || JSON.parse(localStorage.getItem("listaPostagens")) || [];
+
+        for (var i = 0; i < postagens.length; i++) {
+          var postagem = postagens[i];
+
+          var itemElemento = document.createElement("div");
+          itemElemento.classList.add("post");
+          var tituloElemento = document.createElement("span");
+          var imagemElemento = document.createElement("img");
+          var dataElemento = document.createElement("span");
+          var conteudoElemento = document.createElement("span");
+          var botaoDiv = document.createElement("div");
+          botaoDiv.classList.add("botoes");
+          var editarElemento = document.createElement("button");
+          var excluirElemento = document.createElement("button");
+
+          botaoDiv.appendChild(editarElemento);
+          botaoDiv.appendChild(excluirElemento);
+
+          tituloElemento.textContent = `Titulo: ${postagem.titulo}`;
+          imagemElemento.src = postagem.imagem;
+          dataElemento.textContent = `Data: ${postagem.data}`;
+          conteudoElemento.textContent = `Conteúdo: ${postagem.conteudo}`;
+          editarElemento.textContent = "Editar";
+          excluirElemento.textContent = "Excluir";
+
+          (function (index) {
+            editarElemento.addEventListener("click", function () {
+              editarObjeto(index);
+            });
+
+            excluirElemento.addEventListener("click", function () {
+              excluirObjeto(index);
+            });
+          })(i);
+
+          itemElemento.appendChild(tituloElemento);
+          itemElemento.appendChild(imagemElemento);
+          itemElemento.appendChild(dataElemento);
+          itemElemento.appendChild(conteudoElemento);
+          itemElemento.appendChild(botaoDiv);
+
+          dadosPostagens.appendChild(itemElemento);
+        }
+      }
+
+      function mostrarModal() {
+        let adicionar = document.getElementById("adicionar");
+        let adicionarModal = document.getElementById("adicionarModal");
+        if (adicionarModal.style.display == "block") {
+          adicionarModal.style.display = "none";
+        } else {
+          adicionarModal.style.display = "block";
+        }
+      }
+
+      function salvarDados() {
+        titulo = document.getElementById("titulo");
+        imagem = document.getElementById("imagem");
+        data = document.getElementById("data");
+        conteudo = document.getElementById("conteudo");
+        var imagemConvertida = "";
+
+        var postagem = {
+          titulo: titulo.value,
+          data: data.value,
+          conteudo: conteudo.value,
+        };
+
+        if (imagem.files && imagem.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            postagem.imagem = e.target.result;
+
+            let listaPostagens =
+              JSON.parse(localStorage.getItem("listaPostagens")) || [];
+
+            listaPostagens.push(postagem);
+
+            localStorage.setItem(
+              "listaPostagens",
+              JSON.stringify(listaPostagens)
+            );
+
+            titulo.value = "";
+            imagem.value = "";
+            data.value = "";
+            conteudo.value = "";
+
+            mostrarPostagens();
+          };
+
+          reader.readAsDataURL(imagem.files[0]);
+        } else {
+          alert("Favor inserir uma imagem!")
+        }
+      }
+
+      function excluirObjeto(index) {
+        var lista = JSON.parse(localStorage.getItem("listaPostagens"));
+        lista.splice(index, 1);
+
+        localStorage.setItem("listaPostagens", JSON.stringify(lista));
+
+        mostrarPostagens();
+      }
+
+      function pesquisarPost() {
+        var termo = document.getElementById("pesquisa").value.toLowerCase();
+
+        var lista = JSON.parse(localStorage.getItem("listaPostagens"));
+
+        var resultados = lista.filter(function (objeto) {
+          var titulo = objeto.titulo.toLowerCase();
+          var conteudo = objeto.conteudo.toLowerCase();
+
+          return titulo.includes(termo) || conteudo.includes(termo);
+        });
+
+        mostrarPostagens(resultados);
+      }
+
+      function editarObjeto(index) {
+        var lista = JSON.parse(localStorage.getItem("listaPostagens"));
+        var objeto = lista[index];
+
+        document.getElementById("edit-titulo").value = objeto.titulo;
+        document.getElementById("edit-data").value = objeto.data;
+        document.getElementById("edit-conteudo").value = objeto.conteudo;
+
+        document.getElementById("editarModal").style.display = "block";
+        document
+          .getElementById("editarModal")
+          .setAttribute("data-index", index);
+      }
+
+      function salvarEdicao() {
+        var index = parseInt(
+          document.getElementById("editarModal").getAttribute("data-index")
+        );
+        var titulo = document.getElementById("edit-titulo");
+        var imagem = document.getElementById("edit-imagem");
+        var data = document.getElementById("edit-data");
+        var conteudo = document.getElementById("edit-conteudo");
+
+        var lista = JSON.parse(localStorage.getItem("listaPostagens"));
+
+        lista[index].titulo = titulo.value;
+        lista[index].data = data.value;
+        lista[index].conteudo = conteudo.value;
+
+        localStorage.setItem("listaPostagens", JSON.stringify(lista));
+
+        if (imagem.files && imagem.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            lista[index].imagem = e.target.result;
+
+            localStorage.setItem("listaPostagens", JSON.stringify(lista));
+
+            titulo.value = "";
+            imagem.value = "";
+            data.value = "";
+            conteudo.value = "";
+
+            document.getElementById("editarModal").style.display = "none";
+            mostrarPostagens();
+          };
+
+          reader.readAsDataURL(imagem.files[0]);
+        } else {
+          alert("Favor inserir nova imagem!")
+        }
+      }
+
+      function cancelarEdicao() {
+        document.getElementById("edit-titulo").value = "";
+        document.getElementById("edit-imagem").value = "";
+        document.getElementById("edit-data").value = "";
+        document.getElementById("edit-conteudo").value = "";
+        document.getElementById("editarModal").style.display = "none";
+      }
+    </script>
+  </body>
 </html>
